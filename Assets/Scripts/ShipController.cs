@@ -67,6 +67,10 @@ public class ShipController : MonoBehaviour {
                 }
             }
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 	}
 
     private void fire()
