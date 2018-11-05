@@ -9,6 +9,8 @@ public class ShipController : MonoBehaviour {
 
     public float rechargeRate = 5;//how much fuel recharges each second
 
+    public float fireCost = 2.0f;//how much each bullet costs
+    public float bulletSpeed = 3.0f;//how fast the bullets travel
     public float fireDelay = 0.1f;//time between each shot
     private float lastFireTime = 0;
 
@@ -44,7 +46,11 @@ public class ShipController : MonoBehaviour {
         {
             if (Time.time > lastFireTime + fireDelay)
             {
-                fire();
+                if (weaponResource.ResourceAmount > fireCost)
+                {
+                    weaponResource.useResource(fireCost);
+                    fire();
+                }
             }
         }
 	}
@@ -54,6 +60,6 @@ public class ShipController : MonoBehaviour {
         lastFireTime = Time.time;
         GameObject go = GameObject.Instantiate(bulletPrefab);
         go.transform.position = transform.position;
-        go.GetComponent<Rigidbody2D>().velocity = Vector2.up;
+        go.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletSpeed;
     }
 }
