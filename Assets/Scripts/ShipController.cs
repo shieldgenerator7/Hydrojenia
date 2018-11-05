@@ -9,9 +9,14 @@ public class ShipController : MonoBehaviour {
 
     public float rechargeRate = 5;//how much fuel recharges each second
 
+    public float fireDelay = 0.1f;//time between each shot
+    private float lastFireTime = 0;
+
     public ResourceBar shieldResource;
     public ResourceBar weaponResource;
     public ResourceBar engineResource;
+
+    public GameObject bulletPrefab;
 
     private Rigidbody2D rb2d;
 	// Use this for initialization
@@ -34,5 +39,21 @@ public class ShipController : MonoBehaviour {
         {
             rb2d.AddForce(movementVector * energy);
         }
+        //Fire
+        if (Input.GetMouseButton(0))
+        {
+            if (Time.time > lastFireTime + fireDelay)
+            {
+                fire();
+            }
+        }
 	}
+
+    private void fire()
+    {
+        lastFireTime = Time.time;
+        GameObject go = GameObject.Instantiate(bulletPrefab);
+        go.transform.position = transform.position;
+        go.GetComponent<Rigidbody2D>().velocity = Vector2.up;
+    }
 }

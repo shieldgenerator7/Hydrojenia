@@ -390,9 +390,12 @@ MonoBehaviour:
   movementSpeed: 5
   speedPerFuel: 10
   rechargeRate: 10
+  fireDelay: 0.1
   shieldResource: {fileID: 1966843384}
   weaponResource: {fileID: 311487381}
   engineResource: {fileID: 1574295466}
+  bulletPrefab: {fileID: 1561586171625966, guid: 91614ba5921121449ad1cf222793c5a0,
+    type: 2}
 --- !u!50 &823184907
 Rigidbody2D:
   serializedVersion: 4
