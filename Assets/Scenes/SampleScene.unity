@@ -389,7 +389,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   speedPerFuel: 10
-  rechargeRate: 10
+  rechargeRate: 15
+  fireCost: 2
+  bulletSpeed: 3
   fireDelay: 0.1
   shieldResource: {fileID: 1966843384}
   weaponResource: {fileID: 311487381}

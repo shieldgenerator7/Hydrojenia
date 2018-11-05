@@ -17,6 +17,7 @@ public class ShipController : MonoBehaviour {
     public ResourceBar shieldResource;
     public ResourceBar weaponResource;
     public ResourceBar engineResource;
+    private ResourceBar rechargeTarget;//the resource that will currently get recharged
 
     public GameObject bulletPrefab;
 
@@ -24,13 +25,26 @@ public class ShipController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rb2d = GetComponent<Rigidbody2D>();
+        rechargeTarget = engineResource;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
+        //Switch recharge target
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if (rechargeTarget == engineResource)
+            {
+                rechargeTarget = weaponResource;
+            }
+            else
+            {
+                rechargeTarget = engineResource;
+            }
+        }
         //Recharge
-        engineResource.recharge(rechargeRate * Time.deltaTime);
+        rechargeTarget.recharge(rechargeRate * Time.deltaTime);
         //Move
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
