@@ -16,5 +16,14 @@ public class Bounds : MonoBehaviour {
         {
             collGO.transform.position = transform.position - (collGO.transform.position - transform.position);
         }
+        else if (collGO.transform.parent.CompareTag("Player"))
+        {
+            collGO = collGO.transform.parent.gameObject;
+            collGO.transform.position = transform.position - (collGO.transform.position - transform.position);
+        }
+        else if (collGO.CompareTag("Bullet"))
+        {
+            Destroy(collGO);
+        }
     }
 }
