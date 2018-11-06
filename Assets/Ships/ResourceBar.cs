@@ -16,9 +16,12 @@ public class ResourceBar : MonoBehaviour
         {
             currentResource = value;
             currentResource = Mathf.Clamp(currentResource, 0, maxResource);
-            Color c = sr.color;
-            c.a = currentResource / maxResource;
-            sr.color = c;
+            if (sr != null)
+            {
+                Color c = sr.color;
+                c.a = currentResource / maxResource;
+                sr.color = c;
+            }
         }
     }
 
