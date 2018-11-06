@@ -36,8 +36,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4931679650635240}
   - component: {fileID: 114067237332213176}
-  - component: {fileID: 61870195679272304}
-  - component: {fileID: 61159827606845328}
   m_Layer: 0
   m_Name: Weapon Component
   m_TagString: Untagged
@@ -88,7 +86,10 @@ GameObject:
   - component: {fileID: 212208540120886820}
   - component: {fileID: 50077804863824120}
   - component: {fileID: 61998522386095872}
+  - component: {fileID: 61027071050370848}
+  - component: {fileID: 61941094631419936}
   - component: {fileID: 114801762440361398}
+  - component: {fileID: 114730634165743436}
   m_Layer: 0
   m_Name: U Rammer
   m_TagString: Player
@@ -185,37 +186,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61159827606845328
+--- !u!61 &61027071050370848
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1076967791818840}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.45553464, y: 0.18980598}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.24077547, y: 0.8734627}
-  m_EdgeRadius: 0
---- !u!61 &61870195679272304
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1076967791818840}
+  m_GameObject: {fileID: 1988110065631318}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -225,10 +201,35 @@ BoxCollider2D:
   m_Offset: {x: -0.4555346, y: 0.18980598}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.36, y: 1.36}
+    newSize: {x: 0.39, y: 0.37}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.24077547, y: 0.8734627}
+  m_EdgeRadius: 0
+--- !u!61 &61941094631419936
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1988110065631318}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.45553464, y: 0.18980598}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.36, y: 1.36}
+    newSize: {x: 0.39, y: 0.37}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -247,7 +248,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.39}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -258,7 +259,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.33, y: 1.36}
+  m_Size: {x: 0.97, y: 0.44}
   m_EdgeRadius: 0
 --- !u!114 &114028437542528944
 MonoBehaviour:
@@ -312,7 +313,7 @@ MonoBehaviour:
   efficiency: 10
   resourceBar: {fileID: 114272628178305432}
   resourceSprite: {fileID: 21300000, guid: 2acbe39213d75d34abd68670ce81b092, type: 3}
-  movementSpeed: 3
+  movementSpeed: 2
   speedDecayRate: 0.5
 --- !u!114 &114272628178305432
 MonoBehaviour:
@@ -327,6 +328,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxResource: 200
   currentResource: 0
+--- !u!114 &114730634165743436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1988110065631318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4873db64cde2804881f56a1092fa3ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 25
+  health: 0
 --- !u!114 &114801762440361398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -346,6 +360,7 @@ MonoBehaviour:
   ability1: {fileID: 114067237332213176}
   ability2: {fileID: 0}
   ability3: {fileID: 0}
+  destroyedSprite: {fileID: 21300000, guid: 204a9b0706f9f7045b75f8d0a9257421, type: 3}
   distanceThreshold: 2
 --- !u!212 &212208540120886820
 SpriteRenderer:

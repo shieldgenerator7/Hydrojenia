@@ -38,6 +38,9 @@ public class WeaponComponent : ShipComponent
         go.transform.position = transform.position;
         go.transform.up = transform.up;
         go.GetComponent<Rigidbody2D>().velocity = transform.up * bulletSpeed;
+        BulletChecker bc = go.GetComponent<BulletChecker>();
+        bc.damage = bulletDamage;
+        bc.owner = transform.parent.gameObject;
         return go;
     }
 }

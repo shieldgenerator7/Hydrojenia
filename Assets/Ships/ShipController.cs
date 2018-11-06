@@ -16,12 +16,15 @@ public class ShipController : MonoBehaviour
     public ShipComponent ability2;//the component in ability slot 2
     public ShipComponent ability3;//the component in ability slot 3
 
+    public Sprite destroyedSprite;//what it looks like when destroyed
+
     private Rigidbody2D rb2d;
     // Use this for initialization
     protected virtual void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         rechargeTarget = resourceBars[rechargeTargetIndex];
+        GetComponent<HealthPool>().onDeath += onDeath;
     }
 
     // Update is called once per frame
@@ -92,5 +95,12 @@ public class ShipController : MonoBehaviour
                 return Input.GetButtonUp(buttonName);
         }
         throw new UnityException("Ship " + name + " has a component (" + component.name + ") that has an activation moment (" + component.activationMoment + ") that is not in the list!");
+    }
+
+    public void onDeath()
+    {
+        GetComponent<SpriteRenderer>().sprite = destroyedSprite;
+        Destroy(this);
+        Destroy(GetComponent<HealthPool>());
     }
 }
