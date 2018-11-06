@@ -28,7 +28,7 @@ public class ShipController : MonoBehaviour
     void Update()
     {
         //Switch recharge target
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (checkSwitchRechargeTarget())
         {
             rechargeTargetIndex++;
             rechargeTargetIndex = rechargeTargetIndex % resourceBars.Count;
@@ -38,9 +38,7 @@ public class ShipController : MonoBehaviour
         rechargeTarget.recharge(rechargeRate * Time.deltaTime);
 
         //Process Inputs
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        movementComponent.move(horizontal, vertical);
+        checkMovement();
         if (ability1)
         {
             if (checkAbility(ability1, "Ability1"))
@@ -70,7 +68,19 @@ public class ShipController : MonoBehaviour
         }
     }
 
-    bool checkAbility(ShipComponent component, string buttonName)
+    protected virtual bool checkSwitchRechargeTarget()
+    {
+        return Input.GetKeyDown(KeyCode.LeftShift);
+    }
+
+    protected virtual void checkMovement()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        movementComponent.move(horizontal, vertical);
+    }
+
+    protected virtual bool checkAbility(ShipComponent component, string buttonName)
     {
         switch (component.activationMoment)
         {
