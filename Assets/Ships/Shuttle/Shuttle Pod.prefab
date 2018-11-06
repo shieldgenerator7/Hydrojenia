@@ -11,6 +11,22 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1478002798857950}
   m_IsPrefabAsset: 1
+--- !u!1 &1208841684458148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4432685041897024}
+  - component: {fileID: 114808048894586228}
+  m_Layer: 0
+  m_Name: Weapon Component
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1268491869302268
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4410469571390278}
-  - component: {fileID: 114252514991484030}
+  - component: {fileID: 114611958885815730}
   m_Layer: 0
   m_Name: Engine Component
   m_TagString: Untagged
@@ -108,7 +124,7 @@ Transform:
   m_LocalScale: {x: 0.2678, y: 0.2522, z: 1}
   m_Children: []
   m_Father: {fileID: 4731292067898916}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4139952126339328
 Transform:
@@ -121,7 +137,7 @@ Transform:
   m_LocalScale: {x: 0.2678, y: 0.2522, z: 1}
   m_Children: []
   m_Father: {fileID: 4731292067898916}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4410469571390278
 Transform:
@@ -136,6 +152,19 @@ Transform:
   m_Father: {fileID: 4731292067898916}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4432685041897024
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1208841684458148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.498, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4731292067898916}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4726489647510340
 Transform:
   m_ObjectHideFlags: 1
@@ -147,7 +176,7 @@ Transform:
   m_LocalScale: {x: 0.2678, y: 0.2522, z: 1}
   m_Children: []
   m_Father: {fileID: 4731292067898916}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4731292067898916
 Transform:
@@ -160,6 +189,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4410469571390278}
+  - {fileID: 4432685041897024}
   - {fileID: 4061009111640462}
   - {fileID: 4139952126339328}
   - {fileID: 4726489647510340}
@@ -211,22 +241,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.62, y: 0.48}
   m_EdgeRadius: 0
---- !u!114 &114252514991484030
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1578355156013490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70e2312f7cabe1044a91d7a1cfeea18c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 1
-  costType: 1
-  efficiency: 2
-  resourceBar: {fileID: 0}
-  resourceSprite: {fileID: 0}
 --- !u!114 &114269007805560106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,17 +265,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f30c0be302e1cb4c8260e2019ea8228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
-  speedPerFuel: 10
   rechargeRate: 15
-  fireCost: 2
-  bulletSpeed: 3
-  fireDelay: 0.1
   shieldResource: {fileID: 114683020411355580}
   weaponResource: {fileID: 114951700788593666}
   engineResource: {fileID: 114269007805560106}
-  bulletPrefab: {fileID: 1561586171625966, guid: 91614ba5921121449ad1cf222793c5a0,
-    type: 2}
+--- !u!114 &114611958885815730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1578355156013490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a7fe6b5fdcf2245a29f75631772801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activationButton: 3
+  cost: 1
+  costType: 1
+  efficiency: 10
+  resourceBar: {fileID: 114269007805560106}
+  resourceSprite: {fileID: 21300000, guid: 2acbe39213d75d34abd68670ce81b092, type: 3}
+  movementSpeed: 5
 --- !u!114 &114683020411355580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -275,6 +300,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxResource: 100
   currentResource: 0
+--- !u!114 &114808048894586228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1208841684458148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b66085d4260944fa4b86a247908d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activationButton: 0
+  cost: 2
+  costType: 1
+  efficiency: 2
+  resourceBar: {fileID: 114951700788593666}
+  resourceSprite: {fileID: 21300000, guid: 1aa4621e9efb0fe45a35186714c006fe, type: 3}
+  bulletSpeed: 3
+  fireDelay: 0.1
+  bulletPrefab: {fileID: 1561586171625966, guid: 91614ba5921121449ad1cf222793c5a0,
+    type: 2}
 --- !u!114 &114951700788593666
 MonoBehaviour:
   m_ObjectHideFlags: 1
