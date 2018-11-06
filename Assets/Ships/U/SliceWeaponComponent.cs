@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SliceWeaponComponent : WeaponComponent
 {
+    private GameObject currentFire;
 
     // Use this for initialization
     protected override void Start()
@@ -15,5 +16,10 @@ public class SliceWeaponComponent : WeaponComponent
     {
         //deal damage to opposing object
         Debug.Log(gameObject.transform.parent.name + " dealt " + bulletDamage);
+        if (currentFire == null)
+        {
+            currentFire = fire();
+            currentFire.transform.parent = transform;
+        }
     }
 }

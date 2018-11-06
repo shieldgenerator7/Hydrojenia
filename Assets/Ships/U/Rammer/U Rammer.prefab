@@ -159,7 +159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1076967791818840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.353, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4478503963683912}
@@ -290,10 +290,11 @@ MonoBehaviour:
   efficiency: 2
   resourceBar: {fileID: 114028437542528944}
   resourceSprite: {fileID: 0}
-  bulletDamage: 1
-  bulletSpeed: 3
-  fireDelay: 0.1
-  bulletPrefab: {fileID: 0}
+  bulletDamage: 100
+  bulletSpeed: 0
+  fireDelay: 0.5
+  bulletPrefab: {fileID: 1633351265763606, guid: 9614bf5934b62fc47a17c27c49d3b95e,
+    type: 2}
 --- !u!114 &114151286377432492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -311,7 +312,7 @@ MonoBehaviour:
   efficiency: 10
   resourceBar: {fileID: 114272628178305432}
   resourceSprite: {fileID: 21300000, guid: 2acbe39213d75d34abd68670ce81b092, type: 3}
-  movementSpeed: 5
+  movementSpeed: 3
   speedDecayRate: 0.5
 --- !u!114 &114272628178305432
 MonoBehaviour:

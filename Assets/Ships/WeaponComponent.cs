@@ -31,11 +31,13 @@ public class WeaponComponent : ShipComponent
         }
     }
 
-    private void fire()
+    protected GameObject fire()
     {
         lastFireTime = Time.time;
         GameObject go = GameObject.Instantiate(bulletPrefab);
         go.transform.position = transform.position;
+        go.transform.up = transform.up;
         go.GetComponent<Rigidbody2D>().velocity = transform.up * bulletSpeed;
+        return go;
     }
 }
