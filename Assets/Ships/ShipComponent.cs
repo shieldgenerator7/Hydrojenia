@@ -3,15 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShipComponent : MonoBehaviour {
-
-    public enum ActivationButton
-    {
-        ABILITY_1,
-        ABILITY_2,
-        ABILITY_3,
-        NONE
-    }
-    public ActivationButton activationButton;
+    
     public enum ActivationMoment
     {
         BUTTON_DOWN,
