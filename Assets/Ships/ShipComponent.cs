@@ -12,6 +12,13 @@ public class ShipComponent : MonoBehaviour {
         NONE
     }
     public ActivationButton activationButton;
+    public enum ActivationMoment
+    {
+        BUTTON_DOWN,
+        BUTTON_HELD,
+        BUTTON_UP
+    }
+    public ActivationMoment activationMoment;
     public float cost = 1;//cost per unit or cost per second, depending on costType
     public enum CostType
     {
@@ -37,4 +44,6 @@ public class ShipComponent : MonoBehaviour {
             rb2d = GetComponentInParent<Rigidbody2D>();
         }
     }
+
+    public virtual void activate() { }
 }

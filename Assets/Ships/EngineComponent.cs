@@ -13,11 +13,8 @@ public class EngineComponent : ShipComponent {
         costType = CostType.PER_SECOND;
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	public void move(float horizontal, float vertical) { 
         //Move
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
         Vector2 movementVector = new Vector2(horizontal, vertical);
         float energy = resourceBar.useResource(movementVector.magnitude * movementSpeed / efficiency);
         energy *= efficiency;

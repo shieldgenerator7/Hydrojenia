@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponComponent : ShipComponent
 {
-
+    public float bulletDamage = 1.0f;//how much damage a bullet does on contact
     public float bulletSpeed = 3.0f;//how fast the bullets travel
     public float fireDelay = 0.1f;//time between each shot
     private float lastFireTime = 0;
@@ -18,19 +18,15 @@ public class WeaponComponent : ShipComponent
         costType = CostType.PER_UNIT;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void activate()
     {
         //Fire
-        if (Input.GetMouseButton(0))
+        if (Time.time > lastFireTime + fireDelay)
         {
-            if (Time.time > lastFireTime + fireDelay)
+            if (resourceBar.ResourceAmount > cost)
             {
-                if (resourceBar.ResourceAmount > cost)
-                {
-                    resourceBar.useResource(cost);
-                    fire();
-                }
+                resourceBar.useResource(cost);
+                fire();
             }
         }
     }
