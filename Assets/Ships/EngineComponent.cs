@@ -5,6 +5,7 @@ using UnityEngine;
 public class EngineComponent : ShipComponent {
 
     public float movementSpeed = 5;
+    public float speedDecayRate = 1;//how much speed is lost per second after not moving
 
 	// Use this for initialization
 	protected override void Start () {
@@ -23,6 +24,14 @@ public class EngineComponent : ShipComponent {
         if (energy > 0)
         {
             rb2d.AddForce(movementVector * energy);
+        }
+        else if (rb2d.velocity.sqrMagnitude > 0)
+        {
+            rb2d.velocity += -rb2d.velocity * speedDecayRate * Time.deltaTime;
+        }
+        if (rb2d.velocity.sqrMagnitude > movementSpeed * movementSpeed)
+        {
+            rb2d.velocity = rb2d.velocity.normalized * movementSpeed;
         }
     }
 }

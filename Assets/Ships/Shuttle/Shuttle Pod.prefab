@@ -266,9 +266,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rechargeRate: 15
-  shieldResource: {fileID: 114683020411355580}
-  weaponResource: {fileID: 114951700788593666}
-  engineResource: {fileID: 114269007805560106}
+  resourceBars:
+  - {fileID: 114951700788593666}
+  - {fileID: 114269007805560106}
 --- !u!114 &114611958885815730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -287,6 +287,7 @@ MonoBehaviour:
   resourceBar: {fileID: 114269007805560106}
   resourceSprite: {fileID: 21300000, guid: 2acbe39213d75d34abd68670ce81b092, type: 3}
   movementSpeed: 5
+  speedDecayRate: 0.5
 --- !u!114 &114683020411355580
 MonoBehaviour:
   m_ObjectHideFlags: 1
