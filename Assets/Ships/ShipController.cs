@@ -8,7 +8,7 @@ public class ShipController : MonoBehaviour
     public float rechargeRate = 5;//how much fuel recharges each second
 
     public List<ResourceBar> resourceBars;
-    private ResourceBar rechargeTarget;//the resource that will currently get recharged
+    protected ResourceBar rechargeTarget;//the resource that will currently get recharged
     private int rechargeTargetIndex = 0;//the index of the rechargeTarget in the resourceBars array
 
     public EngineComponent movementComponent;//the component that receives movement input
@@ -18,7 +18,7 @@ public class ShipController : MonoBehaviour
 
     private Rigidbody2D rb2d;
     // Use this for initialization
-    void Start()
+    protected virtual void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         rechargeTarget = resourceBars[rechargeTargetIndex];

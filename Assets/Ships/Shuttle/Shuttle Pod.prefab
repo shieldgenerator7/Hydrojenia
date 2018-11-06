@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 114611958885815730}
   m_Layer: 0
   m_Name: Engine Component
-  m_TagString: Untagged
+  m_TagString: EngineComponent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,7 +284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a7fe6b5fdcf2245a29f75631772801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activationButton: 3
   activationMoment: 0
   cost: 1
   costType: 1
@@ -317,7 +316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b66085d4260944fa4b86a247908d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activationButton: 0
   activationMoment: 1
   cost: 2
   costType: 1
