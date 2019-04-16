@@ -362,6 +362,7 @@ MonoBehaviour:
   ability3: {fileID: 0}
   destroyedSprite: {fileID: 21300000, guid: 204a9b0706f9f7045b75f8d0a9257421, type: 3}
   distanceThreshold: 2
+  morePrefab: {fileID: 1988110065631318}
 --- !u!212 &212208540120886820
 SpriteRenderer:
   m_ObjectHideFlags: 1

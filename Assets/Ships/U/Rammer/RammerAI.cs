@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RammerAI : ShipController {
+public class RammerAI : ShipController
+{
 
     public float distanceThreshold = 2;
+
+    public GameObject morePrefab;
 
     GameObject player;
 
     protected override void Start()
     {
         base.Start();
-        player = GameObject.FindGameObjectWithTag("Player");    
+        player = GameObject.FindGameObjectWithTag("Player");
+        GetComponent<HealthPool>().onDeath += spawnMore;
     }
 
     protected override bool checkSwitchRechargeTarget()
@@ -38,6 +42,15 @@ public class RammerAI : ShipController {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         ability1.activate();
+    }
+
+    void spawnMore()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            GameObject go = GameObject.Instantiate(morePrefab);
+            go.transform.position = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0));
+        }
     }
 
 }
